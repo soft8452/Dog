@@ -1,736 +1,561 @@
-table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 70%;
-  }
-  
-  td, th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even){background-color: #f2f2f2;}
-  
-  tr:hover {background-color: #ddd;}
-  
-  th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #04AA6D;
-    color: white;
-  }
+/* ==================================================
+   ตั้งค่าพื้นฐาน
+================================================== */
 
- /* =====================================================
-   ตั้งค่าพื้นฐานของเว็บไซต์
-===================================================== */
-
-/* กำหนดทุก element ให้คำนวณขนาดรวม Padding และ Border */
+/* ทำให้การคำนวณขนาดของทุก Element ทำได้ง่าย */
 * {
     box-sizing: border-box;
 }
 
-
-/* กำหนดรูปแบบหน้าเว็บ */
+/* รูปแบบหลักของหน้าเว็บ */
 body {
-
-    /* ลบระยะขอบเริ่มต้นของ Browser */
     margin: 0;
 
-    /* กำหนดความสูงขั้นต่ำเต็มหน้าจอ */
-    min-height: 100vh;
-
-    /* จัดกล่องให้อยู่ตรงกลาง */
-    display: flex;
-
-    /* จัดแนวนอนตรงกลาง */
-    justify-content: center;
-
-    /* จัดแนวตั้งด้านบน */
-    align-items: flex-start;
-
-    /* ระยะด้านบน */
-    padding: 50px 20px;
-
-    /* สีพื้นหลัง */
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(0, 80, 255, 0.15),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(255, 0, 70, 0.13),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #020817,
-            #030914 50%,
-            #0b0310
-        );
-
-    /* กำหนดฟอนต์ */
     font-family:
         Arial,
-        "Noto Sans Thai",
+        "Tahoma",
         sans-serif;
 
-    /* สีตัวอักษร */
-    color: white;
+    background: #f4f6f9;
+
+    color: #222;
+
+    min-height: 100vh;
 }
 
 
-/* =====================================================
-   กล่องหลัก
-===================================================== */
+/* ==================================================
+   ส่วน Header
+================================================== */
 
-.container {
-
-    /* กำหนดความกว้าง */
-    width: 100%;
-
-    /* ความกว้างสูงสุด */
-    max-width: 850px;
-
-    /* พื้นหลังกล่อง */
-    background:
-        linear-gradient(
-            145deg,
-            rgba(5, 15, 32, 0.97),
-            rgba(2, 7, 18, 0.98)
-        );
-
-    /* เส้นขอบ */
-    border: 1px solid rgba(100, 130, 180, 0.35);
-
-    /* มุมโค้ง */
-    border-radius: 18px;
-
-    /* ระยะด้านใน */
-    padding: 40px 55px;
-
-    /* เงา */
-    box-shadow:
-        0 0 30px rgba(0, 70, 255, 0.12),
-        0 0 60px rgba(255, 0, 80, 0.05);
-
-    /* ทำให้ขอบด้านบนมีเอฟเฟกต์ */
+.hero {
     position: relative;
 
-    /* ซ่อนส่วนเกิน */
+    padding: 75px 20px 110px;
+
+    text-align: center;
+
+    color: white;
+
     overflow: hidden;
+
+    /* พื้นหลังสไตล์แดง + น้ำเงิน */
+    background:
+        linear-gradient(
+            135deg,
+            #061b45 0%,
+            #0b3475 50%,
+            #d60000 100%
+        );
 }
 
 
-/* เส้นไฟด้านบนของกล่อง */
-.container::before {
-
-    /* สร้าง element เปล่า */
+/* วงกลมตกแต่งด้านขวา */
+.hero::before {
     content: "";
 
-    /* ตำแหน่ง */
     position: absolute;
 
-    /* ชิดด้านบน */
-    top: 0;
+    width: 450px;
+    height: 450px;
 
-    /* ชิดซ้าย */
-    left: 0;
+    right: -180px;
+    top: -250px;
 
-    /* ความกว้างเต็มกล่อง */
-    width: 100%;
+    border-radius: 50%;
 
-    /* ความสูงของเส้น */
-    height: 3px;
-
-    /* Gradient น้ำเงิน → แดง */
     background:
-        linear-gradient(
-            90deg,
-            #0066ff,
-            #00aaff,
-            #ff0060
-        );
-
-    /* แสง */
-    box-shadow:
-        0 0 12px #0066ff,
-        0 0 15px #ff0060;
+        rgba(255, 255, 255, 0.08);
 }
 
 
-/* =====================================================
-   หัวข้อหลัก
-===================================================== */
+/* วงกลมตกแต่งด้านซ้าย */
+.hero::after {
+    content: "";
 
-.container h1 {
+    position: absolute;
 
-    /* จัดข้อความตรงกลาง */
-    text-align: center;
+    width: 300px;
+    height: 300px;
 
-    /* ขนาดตัวอักษร */
-    font-size: 32px;
+    left: -150px;
+    bottom: -200px;
 
-    /* ตัวหนา */
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+}
+
+
+/* เนื้อหา Header */
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* ข้อความ OUR PRODUCTS */
+.hero-label {
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    margin-bottom: 14px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.5);
+
+    border-radius: 50px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* หัวข้อหลัก */
+.hero h1 {
+    margin: 0 0 12px;
+
+    font-size: 46px;
+
     font-weight: 800;
 
-    /* ระยะด้านล่าง */
-    margin: 0 0 35px 0;
-
-    /* สีตัวอักษร */
-    color: white;
-
-    /* แสง */
-    text-shadow:
-        0 0 10px rgba(0, 100, 255, 0.5),
-        0 0 15px rgba(255, 0, 80, 0.2);
+    letter-spacing: -1px;
 }
 
 
-/* =====================================================
-   FORM
-===================================================== */
-
-.Form-container {
-
-    /* กำหนดความกว้าง */
-    width: 100%;
-
-    /* เรียง element จากบนลงล่าง */
-    display: flex;
-
-    /* กำหนดทิศทางเป็นแนวตั้ง */
-    flex-direction: column;
-
-    /* ไม่ให้ form ลอย */
-    float: none;
-
-    /* ไม่ให้เกิด margin แปลก ๆ */
+/* คำอธิบาย */
+.hero p {
     margin: 0;
 
-    /* ไม่ให้เกิด gap จาก CSS อื่น */
-    gap: 0;
+    font-size: 16px;
+
+    color:
+        rgba(255, 255, 255, 0.85);
 }
 
 
-/* =====================================================
-   LABEL
-===================================================== */
+/* ==================================================
+   ส่วนสินค้า
+================================================== */
 
-.Form-container label {
+.products-section {
+    position: relative;
 
-    /* ทำให้ Label อยู่คนละบรรทัด */
-    display: block;
+    z-index: 5;
 
-    /* ความกว้างเต็ม */
-    width: 100%;
+    margin-top: -55px;
 
-    /* ระยะด้านบน */
-    margin-top: 18px;
-
-    /* ระยะด้านล่าง */
-    margin-bottom: 8px;
-
-    /* ขนาดตัวอักษร */
-    font-size: 15px;
-
-    /* ตัวหนา */
-    font-weight: bold;
-
-    /* สี */
-    color: #ffffff;
+    padding-bottom: 70px;
 }
 
 
-/* Label ตัวแรกไม่ต้องเว้นด้านบน */
-.Form-container label:first-of-type {
-    margin-top: 0;
-}
+/* ==================================================
+   หัวข้อสินค้าด้านบน
+================================================== */
 
+.section-title {
+    margin-bottom: 30px;
 
-/* =====================================================
-   INPUT
-===================================================== */
+    padding: 25px 30px;
 
-.Form-container input[type="text"],
-.Form-container input[type="email"],
-.Form-container select {
+    background: white;
 
-    /* ทำให้เป็น block */
-    display: block;
+    border-radius: 18px;
 
-    /* กว้างเต็ม */
-    width: 100%;
-
-    /* ความสูง */
-    height: 54px;
-
-    /* Padding ซ้ายขวา */
-    padding: 0 18px;
-
-    /* ขนาดตัวอักษร */
-    font-size: 15px;
-
-    /* สีตัวอักษร */
-    color: white;
-
-    /* สีพื้น */
-    background: #0d1d3d;
-
-    /* เส้นขอบ */
-    border: 2px solid #0066ff;
-
-    /* มุมโค้ง */
-    border-radius: 11px;
-
-    /* เอาเส้นขอบตอน Focus ของ Browser ออก */
-    outline: none;
-
-    /* เปลี่ยนรูปแบบเมื่อ Hover */
-    transition: all 0.25s ease;
-}
-
-
-/* =====================================================
-   SELECT
-===================================================== */
-
-.Form-container select {
-
-    /* ให้ cursor เป็นรูปมือ */
-    cursor: pointer;
-
-    /* สีข้อความ */
-    color: white;
-}
-
-
-/* ตัวเลือกใน Select */
-.Form-container select option {
-
-    /* สีพื้น */
-    background: #08152f;
-
-    /* สีตัวอักษร */
-    color: white;
-}
-
-
-/* =====================================================
-   PLACEHOLDER
-===================================================== */
-
-.Form-container input::placeholder {
-
-    /* สี Placeholder */
-    color: #71809f;
-
-    /* ความทึบ */
-    opacity: 1;
-}
-
-
-/* =====================================================
-   เมื่อคลิกช่องกรอก
-===================================================== */
-
-.Form-container input:focus,
-.Form-container select:focus {
-
-    /* เปลี่ยนสีเส้นขอบ */
-    border-color: #ff0050;
-
-    /* เพิ่มแสง */
     box-shadow:
-        0 0 0 3px rgba(0, 102, 255, 0.15),
-        0 0 15px rgba(0, 102, 255, 0.35);
+        0 8px 30px
+        rgba(0, 0, 0, 0.08);
+
+    text-align: center;
 }
 
 
-/* =====================================================
-   กลุ่มปุ่ม
-===================================================== */
+/* หัวข้อ */
+.section-title h2 {
+    margin: 0;
 
-.buttons {
+    color: #061b45;
 
-    /* ใช้ Flexbox */
+    font-size: 26px;
+
+    font-weight: 800;
+}
+
+
+/* คำว่า Products */
+.section-title p {
+    margin: 5px 0 0;
+
+    color: #999;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==================================================
+   Card สินค้า
+================================================== */
+
+.product-card {
+    height: 100%;
+
+    overflow: hidden;
+
+    background: white;
+
+    border:
+        1px solid
+        rgba(0, 0, 0, 0.05);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.07);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* เมื่อเอาเมาส์ไปวาง */
+.product-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0, 0, 0, 0.14);
+}
+
+
+/* ==================================================
+   พื้นที่รูปสินค้า
+================================================== */
+
+.product-image {
+    position: relative;
+
+    width: 100%;
+
+    height: 260px;
+
     display: flex;
 
-    /* จัดตรงกลาง */
-    justify-content: center;
-
-    /* จัดแนวตั้ง */
     align-items: center;
 
-    /* ระยะห่างระหว่างปุ่ม */
-    gap: 14px;
+    justify-content: center;
 
-    /* ระยะด้านบน */
-    margin-top: 30px;
+    overflow: hidden;
 
-    /* ความกว้าง */
+    background: #f7f8fa;
+}
+
+
+/* รูปสินค้า */
+.product-image img {
     width: 100%;
-}
 
+    height: 100%;
 
-/* =====================================================
-   ปุ่ม Submit
-===================================================== */
-
-.submit-btn {
-
-    /* ความกว้าง */
-    width: 130px !important;
-
-    /* ความสูง */
-    height: 42px !important;
-
-    /* ไม่ให้ CSS เดิมมาทับ */
-    padding: 0 !important;
-
-    margin: 0 !important;
-
-    /* ไม่มีขอบ */
-    border: none !important;
-
-    /* มุมโค้ง */
-    border-radius: 22px !important;
-
-    /* Gradient */
-    background:
-        linear-gradient(
-            90deg,
-            #0066ff,
-            #ff0050
-        ) !important;
-
-    /* สีตัวอักษร */
-    color: white !important;
-
-    /* ขนาดตัวอักษร */
-    font-size: 14px !important;
-
-    /* ตัวหนา */
-    font-weight: bold;
-
-    /* รูปมือ */
-    cursor: pointer;
-
-    /* Animation */
-    transition: all 0.3s ease;
-}
-
-
-/* Submit ตอนเอาเมาส์วาง */
-.submit-btn:hover {
-
-    /* เลื่อนขึ้นเล็กน้อย */
-    transform: translateY(-3px);
-
-    /* เพิ่มแสง */
-    box-shadow:
-        0 0 15px rgba(0, 102, 255, 0.7),
-        0 0 20px rgba(255, 0, 80, 0.5);
-}
-
-
-/* =====================================================
-   ปุ่ม Cancel
-===================================================== */
-
-.cancel-btn {
-
-    /* ความกว้าง */
-    width: 130px !important;
-
-    /* ความสูง */
-    height: 42px !important;
-
-    /* Padding */
-    padding: 0 !important;
-
-    /* Margin */
-    margin: 0 !important;
-
-    /* ขอบ */
-    border: 2px solid #0066ff !important;
-
-    /* มุมโค้ง */
-    border-radius: 22px !important;
-
-    /* พื้นหลังโปร่งใส */
-    background: transparent !important;
-
-    /* สีตัวอักษร */
-    color: white !important;
-
-    /* ขนาด */
-    font-size: 14px !important;
-
-    /* ตัวหนา */
-    font-weight: bold;
-
-    /* Cursor */
-    cursor: pointer;
-
-    /* Animation */
-    transition: all 0.3s ease;
-}
-
-
-/* Cancel ตอนเอาเมาส์วาง */
-.cancel-btn:hover {
-
-    /* พื้นหลัง Gradient */
-    background:
-        linear-gradient(
-            90deg,
-            #0066ff,
-            #ff0050
-        ) !important;
-
-    /* เปลี่ยนสีขอบ */
-    border-color: #ff0050 !important;
-
-    /* เลื่อนขึ้น */
-    transform: translateY(-3px);
-
-    /* แสง */
-    box-shadow:
-        0 0 15px rgba(0, 102, 255, 0.5);
-}
-
-
-/* =====================================================
-   ตาราง
-===================================================== */
-
-.table-section {
-
-    /* อยู่บรรทัดใหม่ */
     display: block;
 
-    /* กว้างเต็ม */
-    width: 100%;
+    object-fit: contain;
 
-    /* ระยะห่างจากปุ่ม */
-    margin-top: 50px;
+    padding: 15px;
 
-    /* เคลียร์ float */
-    clear: both;
+    transition:
+        transform 0.5s ease;
 }
 
 
-/* หัวข้อตาราง */
-.table-title {
+/* ทำให้รูปขยายเล็กน้อยตอน Hover */
+.product-card:hover
+.product-image img {
+    transform: scale(1.06);
+}
 
-    /* จัดตรงกลาง */
-    text-align: center;
 
-    /* ขนาด */
-    font-size: 25px;
+/* ==================================================
+   ป้าย NEW / HOT
+================================================== */
 
-    /* ตัวหนา */
-    font-weight: 800;
+.badge-product {
+    position: absolute;
 
-    /* สี */
+    top: 15px;
+
+    left: 15px;
+
+    z-index: 3;
+
+    padding: 6px 13px;
+
+    border-radius: 50px;
+
+    background: #d90000;
+
     color: white;
 
-    /* ระยะ */
-    margin: 0 0 18px 0;
-}
+    font-size: 10px;
 
-
-/* กล่องครอบตาราง */
-.table-wrapper {
-
-    /* กว้างเต็ม */
-    width: 100%;
-
-    /* ถ้าหน้าจอเล็กสามารถเลื่อนตารางได้ */
-    overflow-x: auto;
-
-    /* มุม */
-    border-radius: 12px;
-
-    /* แสง */
-    box-shadow:
-        0 0 20px rgba(0, 102, 255, 0.15);
-}
-
-
-/* ตาราง */
-.student-table {
-
-    /* แสดงเป็นตาราง */
-    display: table !important;
-
-    /* ความกว้าง */
-    width: 100% !important;
-
-    /* ไม่ลอย */
-    float: none !important;
-
-    /* ไม่มี margin */
-    margin: 0 !important;
-
-    /* รวมเส้น */
-    border-collapse: collapse;
-
-    /* สีตัวอักษร */
-    color: white;
-
-    /* พื้นหลัง */
-    background: #050b18;
-
-    /* ขอบ */
-    border: 1px solid rgba(0, 102, 255, 0.5);
-
-    /* มุม */
-    border-radius: 12px;
-
-    /* ซ่อนส่วนเกิน */
-    overflow: hidden;
-}
-
-
-/* หัวตาราง */
-.student-table thead {
-
-    /* Gradient น้ำเงิน แดง */
-    background:
-        linear-gradient(
-            90deg,
-            #0066ff,
-            #302cff,
-            #ff0050
-        );
-}
-
-
-/* ช่องหัวตาราง */
-.student-table th {
-
-    /* ระยะด้านใน */
-    padding: 14px 10px;
-
-    /* สี */
-    color: white;
-
-    /* จัดกลาง */
-    text-align: center;
-
-    /* ขนาด */
-    font-size: 14px;
-
-    /* ตัวหนา */
     font-weight: bold;
 
-    /* เส้น */
-    border-right:
-        1px solid rgba(255,255,255,0.25);
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.15);
 }
 
 
-/* ช่องข้อมูล */
-.student-table td {
+/* ป้าย HOT */
+.badge-product.hot {
+    background: #061b45;
+}
 
-    /* ระยะด้านใน */
-    padding: 14px 10px;
 
-    /* จัดกลาง */
-    text-align: center;
+/* ==================================================
+   ข้อมูลสินค้า
+================================================== */
 
-    /* สี */
-    color: #e8edff;
+.product-info {
+    padding: 22px;
+}
 
-    /* ขนาด */
+
+/* ชื่อสินค้า */
+.product-info h3 {
+    margin: 0 0 8px;
+
+    color: #111;
+
+    font-size: 21px;
+
+    font-weight: 700;
+}
+
+
+/* รายละเอียดสินค้า */
+.description {
+    min-height: 44px;
+
+    margin: 0 0 20px;
+
+    color: #777;
+
     font-size: 14px;
 
-    /* พื้นหลัง */
-    background: #08152f;
-
-    /* เส้นด้านล่าง */
-    border-bottom:
-        1px solid rgba(0,102,255,0.25);
-
-    /* เส้นด้านข้าง */
-    border-right:
-        1px solid rgba(255,255,255,0.12);
+    line-height: 1.6;
 }
 
 
-/* แถวคู่ */
-.student-table tbody tr:nth-child(even) td {
+/* ==================================================
+   ราคา + ปุ่ม
+================================================== */
 
-    /* สีเข้มขึ้น */
-    background: #0d1d3d;
+.product-footer {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
 }
 
 
-/* Hover ตาราง */
-.student-table tbody tr:hover td {
+/* กลุ่มราคา */
+.price {
+    display: flex;
 
-    /* Gradient */
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,102,255,0.35),
-            rgba(255,0,60,0.25)
-        );
+    align-items: baseline;
 
-    /* ตัวอักษรสีขาว */
+    flex-wrap: wrap;
+
+    column-gap: 4px;
+}
+
+
+/* คำว่า ราคา */
+.price span {
+    width: 100%;
+
+    margin-bottom: 2px;
+
+    color: #999;
+
+    font-size: 11px;
+}
+
+
+/* ตัวเลขราคา */
+.price strong {
+    color: #d60000;
+
+    font-size: 21px;
+
+    font-weight: 800;
+}
+
+
+/* คำว่า บาท */
+.price small {
+    color: #777;
+
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   ปุ่ม Add+
+================================================== */
+
+.btn-buy {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 9px 16px;
+
+    border-radius: 50px;
+
+    background: #061b45;
+
     color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 
-/* =====================================================
-   Responsive มือถือ
-===================================================== */
+/* Hover ปุ่ม */
+.btn-buy:hover {
+    background: #d60000;
 
-@media (max-width: 700px) {
+    color: white;
 
-    /* กล่องหลัก */
-    .container {
+    transform: translateY(-2px);
 
-        /* ลด Padding */
-        padding: 30px 20px;
+    box-shadow:
+        0 7px 18px
+        rgba(214, 0, 0, 0.25);
+}
+
+
+/* ไอคอนรถเข็น */
+.btn-buy i {
+    font-size: 14px;
+}
+
+
+/* ==================================================
+   Footer
+================================================== */
+
+.footer {
+    padding: 25px 15px;
+
+    background: #061b45;
+
+    color:
+        rgba(255, 255, 255, 0.7);
+
+    text-align: center;
+}
+
+
+/* ข้อความ Footer */
+.footer p {
+    margin: 0;
+
+    font-size: 13px;
+}
+
+
+/* ==================================================
+   Responsive - Tablet
+================================================== */
+
+@media (max-width: 992px) {
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .product-image {
+        height: 240px;
+    }
+
+}
+
+
+/* ==================================================
+   Responsive - Mobile
+================================================== */
+
+@media (max-width: 576px) {
+
+    /* ลด Header บนมือถือ */
+    .hero {
+        padding:
+            50px 15px 90px;
     }
 
 
-    /* หัวข้อ */
-    .container h1 {
-
-        /* ลดขนาด */
-        font-size: 26px;
+    /* ลดขนาดหัวข้อ */
+    .hero h1 {
+        font-size: 32px;
     }
 
 
-    /* ช่องกรอก */
-    .Form-container input[type="text"],
-    .Form-container input[type="email"],
-    .Form-container select {
-
-        /* ลดความสูง */
-        height: 50px;
+    /* ลดขนาดคำอธิบาย */
+    .hero p {
+        font-size: 14px;
     }
 
 
-    /* ปุ่ม */
-    .submit-btn,
-    .cancel-btn {
-
-        /* ลดขนาด */
-        width: 120px !important;
+    /* ลดขนาดรูป */
+    .product-image {
+        height: 240px;
     }
 
 
-    /* ตาราง */
-    .student-table {
-
-        /* กำหนดความกว้างขั้นต่ำ */
-        min-width: 600px;
+    /* ลด Padding */
+    .product-info {
+        padding: 18px;
     }
+
+
+    /* ปุ่มเล็กลง */
+    .btn-buy {
+        padding: 8px 13px;
+
+        font-size: 12px;
+    }
+
 }
