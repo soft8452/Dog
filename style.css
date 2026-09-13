@@ -1,0 +1,736 @@
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+  }
+  
+  td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2;}
+  
+  tr:hover {background-color: #ddd;}
+  
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+ /* =====================================================
+   ตั้งค่าพื้นฐานของเว็บไซต์
+===================================================== */
+
+/* กำหนดทุก element ให้คำนวณขนาดรวม Padding และ Border */
+* {
+    box-sizing: border-box;
+}
+
+
+/* กำหนดรูปแบบหน้าเว็บ */
+body {
+
+    /* ลบระยะขอบเริ่มต้นของ Browser */
+    margin: 0;
+
+    /* กำหนดความสูงขั้นต่ำเต็มหน้าจอ */
+    min-height: 100vh;
+
+    /* จัดกล่องให้อยู่ตรงกลาง */
+    display: flex;
+
+    /* จัดแนวนอนตรงกลาง */
+    justify-content: center;
+
+    /* จัดแนวตั้งด้านบน */
+    align-items: flex-start;
+
+    /* ระยะด้านบน */
+    padding: 50px 20px;
+
+    /* สีพื้นหลัง */
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0, 80, 255, 0.15),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255, 0, 70, 0.13),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #020817,
+            #030914 50%,
+            #0b0310
+        );
+
+    /* กำหนดฟอนต์ */
+    font-family:
+        Arial,
+        "Noto Sans Thai",
+        sans-serif;
+
+    /* สีตัวอักษร */
+    color: white;
+}
+
+
+/* =====================================================
+   กล่องหลัก
+===================================================== */
+
+.container {
+
+    /* กำหนดความกว้าง */
+    width: 100%;
+
+    /* ความกว้างสูงสุด */
+    max-width: 850px;
+
+    /* พื้นหลังกล่อง */
+    background:
+        linear-gradient(
+            145deg,
+            rgba(5, 15, 32, 0.97),
+            rgba(2, 7, 18, 0.98)
+        );
+
+    /* เส้นขอบ */
+    border: 1px solid rgba(100, 130, 180, 0.35);
+
+    /* มุมโค้ง */
+    border-radius: 18px;
+
+    /* ระยะด้านใน */
+    padding: 40px 55px;
+
+    /* เงา */
+    box-shadow:
+        0 0 30px rgba(0, 70, 255, 0.12),
+        0 0 60px rgba(255, 0, 80, 0.05);
+
+    /* ทำให้ขอบด้านบนมีเอฟเฟกต์ */
+    position: relative;
+
+    /* ซ่อนส่วนเกิน */
+    overflow: hidden;
+}
+
+
+/* เส้นไฟด้านบนของกล่อง */
+.container::before {
+
+    /* สร้าง element เปล่า */
+    content: "";
+
+    /* ตำแหน่ง */
+    position: absolute;
+
+    /* ชิดด้านบน */
+    top: 0;
+
+    /* ชิดซ้าย */
+    left: 0;
+
+    /* ความกว้างเต็มกล่อง */
+    width: 100%;
+
+    /* ความสูงของเส้น */
+    height: 3px;
+
+    /* Gradient น้ำเงิน → แดง */
+    background:
+        linear-gradient(
+            90deg,
+            #0066ff,
+            #00aaff,
+            #ff0060
+        );
+
+    /* แสง */
+    box-shadow:
+        0 0 12px #0066ff,
+        0 0 15px #ff0060;
+}
+
+
+/* =====================================================
+   หัวข้อหลัก
+===================================================== */
+
+.container h1 {
+
+    /* จัดข้อความตรงกลาง */
+    text-align: center;
+
+    /* ขนาดตัวอักษร */
+    font-size: 32px;
+
+    /* ตัวหนา */
+    font-weight: 800;
+
+    /* ระยะด้านล่าง */
+    margin: 0 0 35px 0;
+
+    /* สีตัวอักษร */
+    color: white;
+
+    /* แสง */
+    text-shadow:
+        0 0 10px rgba(0, 100, 255, 0.5),
+        0 0 15px rgba(255, 0, 80, 0.2);
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.Form-container {
+
+    /* กำหนดความกว้าง */
+    width: 100%;
+
+    /* เรียง element จากบนลงล่าง */
+    display: flex;
+
+    /* กำหนดทิศทางเป็นแนวตั้ง */
+    flex-direction: column;
+
+    /* ไม่ให้ form ลอย */
+    float: none;
+
+    /* ไม่ให้เกิด margin แปลก ๆ */
+    margin: 0;
+
+    /* ไม่ให้เกิด gap จาก CSS อื่น */
+    gap: 0;
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.Form-container label {
+
+    /* ทำให้ Label อยู่คนละบรรทัด */
+    display: block;
+
+    /* ความกว้างเต็ม */
+    width: 100%;
+
+    /* ระยะด้านบน */
+    margin-top: 18px;
+
+    /* ระยะด้านล่าง */
+    margin-bottom: 8px;
+
+    /* ขนาดตัวอักษร */
+    font-size: 15px;
+
+    /* ตัวหนา */
+    font-weight: bold;
+
+    /* สี */
+    color: #ffffff;
+}
+
+
+/* Label ตัวแรกไม่ต้องเว้นด้านบน */
+.Form-container label:first-of-type {
+    margin-top: 0;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.Form-container input[type="text"],
+.Form-container input[type="email"],
+.Form-container select {
+
+    /* ทำให้เป็น block */
+    display: block;
+
+    /* กว้างเต็ม */
+    width: 100%;
+
+    /* ความสูง */
+    height: 54px;
+
+    /* Padding ซ้ายขวา */
+    padding: 0 18px;
+
+    /* ขนาดตัวอักษร */
+    font-size: 15px;
+
+    /* สีตัวอักษร */
+    color: white;
+
+    /* สีพื้น */
+    background: #0d1d3d;
+
+    /* เส้นขอบ */
+    border: 2px solid #0066ff;
+
+    /* มุมโค้ง */
+    border-radius: 11px;
+
+    /* เอาเส้นขอบตอน Focus ของ Browser ออก */
+    outline: none;
+
+    /* เปลี่ยนรูปแบบเมื่อ Hover */
+    transition: all 0.25s ease;
+}
+
+
+/* =====================================================
+   SELECT
+===================================================== */
+
+.Form-container select {
+
+    /* ให้ cursor เป็นรูปมือ */
+    cursor: pointer;
+
+    /* สีข้อความ */
+    color: white;
+}
+
+
+/* ตัวเลือกใน Select */
+.Form-container select option {
+
+    /* สีพื้น */
+    background: #08152f;
+
+    /* สีตัวอักษร */
+    color: white;
+}
+
+
+/* =====================================================
+   PLACEHOLDER
+===================================================== */
+
+.Form-container input::placeholder {
+
+    /* สี Placeholder */
+    color: #71809f;
+
+    /* ความทึบ */
+    opacity: 1;
+}
+
+
+/* =====================================================
+   เมื่อคลิกช่องกรอก
+===================================================== */
+
+.Form-container input:focus,
+.Form-container select:focus {
+
+    /* เปลี่ยนสีเส้นขอบ */
+    border-color: #ff0050;
+
+    /* เพิ่มแสง */
+    box-shadow:
+        0 0 0 3px rgba(0, 102, 255, 0.15),
+        0 0 15px rgba(0, 102, 255, 0.35);
+}
+
+
+/* =====================================================
+   กลุ่มปุ่ม
+===================================================== */
+
+.buttons {
+
+    /* ใช้ Flexbox */
+    display: flex;
+
+    /* จัดตรงกลาง */
+    justify-content: center;
+
+    /* จัดแนวตั้ง */
+    align-items: center;
+
+    /* ระยะห่างระหว่างปุ่ม */
+    gap: 14px;
+
+    /* ระยะด้านบน */
+    margin-top: 30px;
+
+    /* ความกว้าง */
+    width: 100%;
+}
+
+
+/* =====================================================
+   ปุ่ม Submit
+===================================================== */
+
+.submit-btn {
+
+    /* ความกว้าง */
+    width: 130px !important;
+
+    /* ความสูง */
+    height: 42px !important;
+
+    /* ไม่ให้ CSS เดิมมาทับ */
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    /* ไม่มีขอบ */
+    border: none !important;
+
+    /* มุมโค้ง */
+    border-radius: 22px !important;
+
+    /* Gradient */
+    background:
+        linear-gradient(
+            90deg,
+            #0066ff,
+            #ff0050
+        ) !important;
+
+    /* สีตัวอักษร */
+    color: white !important;
+
+    /* ขนาดตัวอักษร */
+    font-size: 14px !important;
+
+    /* ตัวหนา */
+    font-weight: bold;
+
+    /* รูปมือ */
+    cursor: pointer;
+
+    /* Animation */
+    transition: all 0.3s ease;
+}
+
+
+/* Submit ตอนเอาเมาส์วาง */
+.submit-btn:hover {
+
+    /* เลื่อนขึ้นเล็กน้อย */
+    transform: translateY(-3px);
+
+    /* เพิ่มแสง */
+    box-shadow:
+        0 0 15px rgba(0, 102, 255, 0.7),
+        0 0 20px rgba(255, 0, 80, 0.5);
+}
+
+
+/* =====================================================
+   ปุ่ม Cancel
+===================================================== */
+
+.cancel-btn {
+
+    /* ความกว้าง */
+    width: 130px !important;
+
+    /* ความสูง */
+    height: 42px !important;
+
+    /* Padding */
+    padding: 0 !important;
+
+    /* Margin */
+    margin: 0 !important;
+
+    /* ขอบ */
+    border: 2px solid #0066ff !important;
+
+    /* มุมโค้ง */
+    border-radius: 22px !important;
+
+    /* พื้นหลังโปร่งใส */
+    background: transparent !important;
+
+    /* สีตัวอักษร */
+    color: white !important;
+
+    /* ขนาด */
+    font-size: 14px !important;
+
+    /* ตัวหนา */
+    font-weight: bold;
+
+    /* Cursor */
+    cursor: pointer;
+
+    /* Animation */
+    transition: all 0.3s ease;
+}
+
+
+/* Cancel ตอนเอาเมาส์วาง */
+.cancel-btn:hover {
+
+    /* พื้นหลัง Gradient */
+    background:
+        linear-gradient(
+            90deg,
+            #0066ff,
+            #ff0050
+        ) !important;
+
+    /* เปลี่ยนสีขอบ */
+    border-color: #ff0050 !important;
+
+    /* เลื่อนขึ้น */
+    transform: translateY(-3px);
+
+    /* แสง */
+    box-shadow:
+        0 0 15px rgba(0, 102, 255, 0.5);
+}
+
+
+/* =====================================================
+   ตาราง
+===================================================== */
+
+.table-section {
+
+    /* อยู่บรรทัดใหม่ */
+    display: block;
+
+    /* กว้างเต็ม */
+    width: 100%;
+
+    /* ระยะห่างจากปุ่ม */
+    margin-top: 50px;
+
+    /* เคลียร์ float */
+    clear: both;
+}
+
+
+/* หัวข้อตาราง */
+.table-title {
+
+    /* จัดตรงกลาง */
+    text-align: center;
+
+    /* ขนาด */
+    font-size: 25px;
+
+    /* ตัวหนา */
+    font-weight: 800;
+
+    /* สี */
+    color: white;
+
+    /* ระยะ */
+    margin: 0 0 18px 0;
+}
+
+
+/* กล่องครอบตาราง */
+.table-wrapper {
+
+    /* กว้างเต็ม */
+    width: 100%;
+
+    /* ถ้าหน้าจอเล็กสามารถเลื่อนตารางได้ */
+    overflow-x: auto;
+
+    /* มุม */
+    border-radius: 12px;
+
+    /* แสง */
+    box-shadow:
+        0 0 20px rgba(0, 102, 255, 0.15);
+}
+
+
+/* ตาราง */
+.student-table {
+
+    /* แสดงเป็นตาราง */
+    display: table !important;
+
+    /* ความกว้าง */
+    width: 100% !important;
+
+    /* ไม่ลอย */
+    float: none !important;
+
+    /* ไม่มี margin */
+    margin: 0 !important;
+
+    /* รวมเส้น */
+    border-collapse: collapse;
+
+    /* สีตัวอักษร */
+    color: white;
+
+    /* พื้นหลัง */
+    background: #050b18;
+
+    /* ขอบ */
+    border: 1px solid rgba(0, 102, 255, 0.5);
+
+    /* มุม */
+    border-radius: 12px;
+
+    /* ซ่อนส่วนเกิน */
+    overflow: hidden;
+}
+
+
+/* หัวตาราง */
+.student-table thead {
+
+    /* Gradient น้ำเงิน แดง */
+    background:
+        linear-gradient(
+            90deg,
+            #0066ff,
+            #302cff,
+            #ff0050
+        );
+}
+
+
+/* ช่องหัวตาราง */
+.student-table th {
+
+    /* ระยะด้านใน */
+    padding: 14px 10px;
+
+    /* สี */
+    color: white;
+
+    /* จัดกลาง */
+    text-align: center;
+
+    /* ขนาด */
+    font-size: 14px;
+
+    /* ตัวหนา */
+    font-weight: bold;
+
+    /* เส้น */
+    border-right:
+        1px solid rgba(255,255,255,0.25);
+}
+
+
+/* ช่องข้อมูล */
+.student-table td {
+
+    /* ระยะด้านใน */
+    padding: 14px 10px;
+
+    /* จัดกลาง */
+    text-align: center;
+
+    /* สี */
+    color: #e8edff;
+
+    /* ขนาด */
+    font-size: 14px;
+
+    /* พื้นหลัง */
+    background: #08152f;
+
+    /* เส้นด้านล่าง */
+    border-bottom:
+        1px solid rgba(0,102,255,0.25);
+
+    /* เส้นด้านข้าง */
+    border-right:
+        1px solid rgba(255,255,255,0.12);
+}
+
+
+/* แถวคู่ */
+.student-table tbody tr:nth-child(even) td {
+
+    /* สีเข้มขึ้น */
+    background: #0d1d3d;
+}
+
+
+/* Hover ตาราง */
+.student-table tbody tr:hover td {
+
+    /* Gradient */
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,102,255,0.35),
+            rgba(255,0,60,0.25)
+        );
+
+    /* ตัวอักษรสีขาว */
+    color: white;
+}
+
+
+/* =====================================================
+   Responsive มือถือ
+===================================================== */
+
+@media (max-width: 700px) {
+
+    /* กล่องหลัก */
+    .container {
+
+        /* ลด Padding */
+        padding: 30px 20px;
+    }
+
+
+    /* หัวข้อ */
+    .container h1 {
+
+        /* ลดขนาด */
+        font-size: 26px;
+    }
+
+
+    /* ช่องกรอก */
+    .Form-container input[type="text"],
+    .Form-container input[type="email"],
+    .Form-container select {
+
+        /* ลดความสูง */
+        height: 50px;
+    }
+
+
+    /* ปุ่ม */
+    .submit-btn,
+    .cancel-btn {
+
+        /* ลดขนาด */
+        width: 120px !important;
+    }
+
+
+    /* ตาราง */
+    .student-table {
+
+        /* กำหนดความกว้างขั้นต่ำ */
+        min-width: 600px;
+    }
+}
